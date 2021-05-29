@@ -1,115 +1,140 @@
-@charset "UTF-8";
-/*
- * Главный файл стилей.
- * Все паршалы подключаются сюда.
- */
-.hero {
-  color: yellowgreen;
-  background-color: purple;
+:root {
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
 }
 
-.example {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  color: #212121;
-  max-width: 960px;
-  padding-top: 16px;
+html {
+  box-sizing: border-box;
 }
 
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: teal;
-  color: white;
-  padding: 2px 6px;
-  border-radius: 2px;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-.hero {
-  color: yellowgreen;
-  background-color: purple;
-}
-
-.article {
-  margin: 0 auto;
-  background-color: #366f98;
-}
-
-.article h2,
-.article p {
-  margin: 0;
-  padding: 0;
-}
-
-.article__container {
-  padding: 50px;
-}
-
-.article__container--third {
+body {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  background-color: #fff;
+  color: #212121;
 }
 
-.article__box {
-  width: 50%;
-}
-
-.article__title {
-  margin-bottom: 50px;
-  text-align: center;
-  color: #52b084;
-  font-weight: 700;
-  font-size: 64px;
-  line-height: 1.15;
-  text-decoration: underline;
-}
-
-.article__title--third {
-  color: antiquewhite;
-  font-size: 40px;
-  line-height: 1.78;
-}
-
-.article__text {
-  color: #9c9183;
-  font-size: 20px;
-}
-
-.article__text:not(:last-child) {
-  margin-bottom: 30px;
-}
-
-.article__text--third {
-  margin-bottom: 50px;
-  color: burlywood;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: italic;
-}
-
-.article__img {
-  display: block;
-  margin-right: auto;
+.gallery {
+  display: grid;
+  width: 1200px;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-auto-rows: 240px;
+  grid-gap: 12px;
+  padding: 0;
+  list-style: none;
   margin-left: auto;
+  margin-right: auto;
 }
 
-.article__img--third {
-  width: 300px;
+.gallery__item {
+  position: relative;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
-.article__bnt {
+.gallery__image:hover {
+  transform: scale(1.03);
+}
+
+.gallery__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.gallery__link {
   display: block;
-  margin: 50px auto;
-  padding: 20px 60px;
-  text-align: center;
-  background-color: blue;
-  color: aliceblue;
+  text-decoration: none;
+  height: 100%;
 }
 
-section {
-  background-color: bisque;
+.gallery__link:hover {
+  cursor: zoom-in;
 }
 
-address {
-  font-size: large;
+/* Lightbox */
+.lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--animation-duration) var(--timing-function);
 }
-/*# sourceMappingURL=main.css.map */
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.lightbox__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox__content {
+  transform: scale(0.95);
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.lightbox.is-open .lightbox__content {
+  transform: scale(1);
+}
+
+.lightbox__image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+.lightbox__button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color var(--animation-duration) var(--timing-function);
+  outline: none;
+  background-image: url('../images/icon-close.svg');
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+.lightbox__button:hover,
+.lightbox__button:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+}
