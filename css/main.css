@@ -1,0 +1,115 @@
+@charset "UTF-8";
+/*
+ * Главный файл стилей.
+ * Все паршалы подключаются сюда.
+ */
+.hero {
+  color: yellowgreen;
+  background-color: purple;
+}
+
+.example {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  color: #212121;
+  max-width: 960px;
+  padding-top: 16px;
+}
+
+.example code {
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: teal;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.hero {
+  color: yellowgreen;
+  background-color: purple;
+}
+
+.article {
+  margin: 0 auto;
+  background-color: #366f98;
+}
+
+.article h2,
+.article p {
+  margin: 0;
+  padding: 0;
+}
+
+.article__container {
+  padding: 50px;
+}
+
+.article__container--third {
+  display: flex;
+}
+
+.article__box {
+  width: 50%;
+}
+
+.article__title {
+  margin-bottom: 50px;
+  text-align: center;
+  color: #52b084;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1.15;
+  text-decoration: underline;
+}
+
+.article__title--third {
+  color: antiquewhite;
+  font-size: 40px;
+  line-height: 1.78;
+}
+
+.article__text {
+  color: #9c9183;
+  font-size: 20px;
+}
+
+.article__text:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.article__text--third {
+  margin-bottom: 50px;
+  color: burlywood;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+.article__img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.article__img--third {
+  width: 300px;
+}
+
+.article__bnt {
+  display: block;
+  margin: 50px auto;
+  padding: 20px 60px;
+  text-align: center;
+  background-color: blue;
+  color: aliceblue;
+}
+
+section {
+  background-color: bisque;
+}
+
+address {
+  font-size: large;
+}
+/*# sourceMappingURL=main.css.map */
