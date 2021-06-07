@@ -57,8 +57,6 @@ btnEl.addEventListener('click', () => {
   divEl.classList.remove('is-open');
 });
 
-
-
 function isOpen() {
   const divCloseModal = document.querySelector('.lightbox__image');
   divEl.classList.remove('is-open');
@@ -66,16 +64,14 @@ function isOpen() {
   divCloseModal.src = '';
 }
 const closeModalEl = document.querySelector('[data-action="close-lightbox"]');
+
 closeModalEl.addEventListener('click', isOpen);
 
 overEl.addEventListener('click', isOpen);
 
-
-
 document.addEventListener('keydown', eve => {
   const divCloseModal = document.querySelector('.lightbox__image');
 
-  
   if (eve.code === 'Escape') {
     isOpen();
   }
@@ -83,7 +79,6 @@ document.addEventListener('keydown', eve => {
     const mapDefEl = defaultEl.map(value => value.original);
     const indElNum = Number(mapDefEl.indexOf(divCloseModal.src));
 
-  
     const mapDelLight = Number(mapDefEl.length) - 1;
     if (eve.code === 'ArrowLeft' || eve.code === 'ArrowUp') {
       if (eve.target.className === imgEl.className) {
@@ -95,7 +90,7 @@ document.addEventListener('keydown', eve => {
         divCloseModal.src = mapDefEl[mapDelLight];
       }
     }
-   
+
     if (
       eve.code === 'ArrowRight' ||
       eve.code === 'ArrowDown' ||
